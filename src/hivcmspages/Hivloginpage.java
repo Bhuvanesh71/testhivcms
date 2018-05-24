@@ -68,7 +68,7 @@ public class Hivloginpage extends testbase{
 	// Connectivity scenario for next page and ensure class name [Navigation Purpose]
 	
 	public Hivdashpage move_todashboard() throws InterruptedException {
-		hivdashpage = new Hivdashpage (driver); 
+    	hivdashpage = new Hivdashpage (driver); 
 		PageFactory.initElements(driver, Hivdashpage.class );
 		Thread.sleep(3000);
 		return hivdashpage;

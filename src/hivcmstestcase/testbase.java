@@ -19,11 +19,11 @@ protected WebDriver driver;
 protected Hivloginpage hivloginpage;
 protected Hivdashpage hivdashpage;
 protected Newchildpage newchildpage;
-public String browsername="chrome";
+public String browsername="firefox";
 
 @BeforeClass
 public void setup() {	
-	 switch(browsername)
+switch(browsername)
 	 {
 	case "chrome":
 		System.setProperty("webdriver.chrome.driver", "C://Users/Bhuvanesh/Desktop/browserexe/chromedriver.exe");
@@ -32,7 +32,7 @@ public void setup() {
 	   break; 
 	 case "firefox":
 		System.setProperty("webdriver.gecko.driver", "C://Users/Bhuvanesh/Desktop/browserexe/geckodriver.exe");
-		driver = new FirefoxDriver();
+     	driver = new FirefoxDriver();
 		break;	
 	}
 	

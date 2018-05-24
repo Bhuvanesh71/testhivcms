@@ -8,6 +8,6 @@ public class hivloginpagetest extends testbase{
 	
 	@Test
 	public void user () throws InterruptedException {
-		hivloginpage.verify_login();
+    	hivloginpage.verify_login();
 	}
 }

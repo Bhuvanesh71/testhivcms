@@ -1,6 +1,10 @@
 package hivcmspages;
 
+import java.util.List;
+import java.util.NoSuchElementException;
+
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,7 +17,7 @@ import hivcmstestcase.testbase;
 
 public class Newchildpage extends testbase{
 
-	public Newchildpage (WebDriver driver){ 
+      public Newchildpage (WebDriver driver){ 
 		 this.driver=driver;
 	    PageFactory.initElements(driver, this);
 	    String MainWindow = driver.getWindowHandle();
@@ -31,8 +35,13 @@ public class Newchildpage extends testbase{
 	@FindBy(id="edit-title")
 	WebElement childpagenew;
 	
-	//@FindBy(xpath="//body[@spellcheck='false']")
-	//WebElement childedit;
+	@FindBy(xpath="//*[@id='edit_field_tagging_und_chosen']/ul")
+	WebElement tags;
+	
+	// Uploading content 
+	
+	@FindBy(xpath="//body[@spellcheck='false']")
+	WebElement childedit;
 	
 	
 	//icon upload
@@ -45,6 +54,7 @@ public class Newchildpage extends testbase{
 	
 	
 	
+	
 	public Newchildpage newchildpage(){
 		newchildpage = new Newchildpage (driver); 
 		PageFactory.initElements(driver, Newchildpage.class );
@@ -52,17 +62,40 @@ public class Newchildpage extends testbase{
 		return newchildpage;
 	}
 	
-	public Newchildpage childpagetitle(){
+	public Newchildpage childpagetitle1(){
 		newchildpage = new Newchildpage (driver); 
 		PageFactory.initElements(driver, Newchildpage.class );
 		 childpagenew.sendKeys("Info");
 		return newchildpage;
-	//}
-	//public Newchildpage childpageedit(){
-		//newchildpage = new Newchildpage (driver); 
-		//PageFactory.initElements(driver, Newchildpage.class );
-		 //childedit.sendKeys("These are the different mechanism to identify the same textbox – by using different attributes such as id, name, className or xpath. Here we have kept just one active & commented the others. For details on different element locators, click here");
-		//return newchildpage;
+		 
+	}
+	
+	    public Newchildpage childpagetitle(){
+		newchildpage = new Newchildpage (driver); 
+		PageFactory.initElements(driver, Newchildpage.class );
+		 childpagenew.click();
+		 try {
+		        
+		        WebElement autoOptions = driver.findElement(By.xpath("//*[@id='edit_field_tagging_und_chosen']/div/ul/li[33]"));
+		        autoOptions.click();
+
+		        List<WebElement> optionsToSelect = autoOptions.findElements(By.tagName("News"));
+		              int indexToSelect =2;
+		          if(indexToSelect<=optionsToSelect.size()) {
+		                System.out.println("Trying to select based on index: "+indexToSelect);
+		                 optionsToSelect.get(indexToSelect).click();
+		              }
+		      }     
+		      catch (NoSuchElementException e) {
+		        System.out.println(e.getStackTrace());
+		      }
+		      catch (Exception e) {
+		        System.out.println(e.getStackTrace());
+		      
+		      }
+		return newchildpage;
+		
+		    
 }
 		public Newchildpage imageupload() throws InterruptedException{
 	    newchildpage = new Newchildpage (driver); 
@@ -75,7 +108,5 @@ public class Newchildpage extends testbase{
 	    driver.switchTo().window(winHandle);
 	    upimage.click();
 	   	return newchildpage;
-			
-
 }
 }

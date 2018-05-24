@@ -9,7 +9,7 @@ public class newchildpagetest extends testbase{
 	@Test
 	
 	public void newchildpagetest () throws InterruptedException {
-		hivloginpage.verify_login().move_todashboard().bookopen().addpage().addcontent().selectcontent().savepage().move_tochildpage().newchildpage().childpagetitle().imageupload();
+    hivloginpage.verify_login().move_todashboard().firstpage().bookopen().addpage().addcontent().selectcontent().savepage().move_tochildpage().newchildpage().childpagetitle().imageupload();
 	
 	}
 }

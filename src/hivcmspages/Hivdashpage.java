@@ -14,11 +14,14 @@ import hivcmstestcase.testbase;
 		
 	public class Hivdashpage extends testbase{
 		
-		public Hivdashpage (WebDriver driver){ 
-		 this.driver=driver;
+	  public Hivdashpage (WebDriver driver){ 
+    	 this.driver=driver;
 	    PageFactory.initElements(driver, this);
 }
 
+		@FindBy(xpath=("//a[contains(text(),'Home')]"))
+		WebElement WHOBOOKINTRO; 
+		
 		@FindBy(xpath="//a[contains(text(),'WHO HTS INFO')]")
 		WebElement WHOBOOK;
 		
@@ -36,13 +39,18 @@ import hivcmstestcase.testbase;
 		@FindBy(id="edit-submit")
 		WebElement Savepage;
 		
-				
-				
-		public Hivdashpage dash_wait() throws InterruptedException {
+		public Hivdashpage firstpage() throws InterruptedException{	
+			hivdashpage = new Hivdashpage (driver); 
+			PageFactory.initElements(driver, Hivdashpage.class );
+			WHOBOOKINTRO.click();
+			return hivdashpage;
+		}
+		public Hivdashpage dashwait() throws InterruptedException {
 			hivdashpage = new Hivdashpage (driver); 
 			PageFactory.initElements(driver, Hivdashpage.class );
 			Thread.sleep(3000);
 			return hivdashpage;
+			
 		}
 		
 		public Hivdashpage bookopen(){
