@@ -31,7 +31,7 @@ import hivcmstestcase.testbase;
 		@FindBy(id="edit-title")
 		WebElement ADDContent;
 		
-		// To implement radio button  Merge
+		// To implement radio button  Merge 1
 		
 		@FindBy(xpath="//input[@type='radio']")
 		List <WebElement> Menusqaure;
