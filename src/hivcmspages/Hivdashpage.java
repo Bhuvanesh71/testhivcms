@@ -31,7 +31,7 @@ import hivcmstestcase.testbase;
 		@FindBy(id="edit-title")
 		WebElement ADDContent;
 		
-		// To implement radio button 
+		// To implement radio button  Merge
 		
 		@FindBy(xpath="//input[@type='radio']")
 		List <WebElement> Menusqaure;
@@ -73,7 +73,7 @@ import hivcmstestcase.testbase;
 			return hivdashpage;
 		}
 		
-		// To implement radio button 
+		// To implement radio button  dff
 		
 		public Hivdashpage selectcontent(){
 			hivdashpage = new Hivdashpage (driver); 
